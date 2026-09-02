@@ -20,3 +20,9 @@ INSERT INTO Alunos (Nome, Idade, Curso, Cidade, Nota)
  ('Rui Alves', 19, 'Computação', 'Campinas', 6.30);
 
  
+Aula 6 - Exercício 1 
+1.Liste todos os alunos com todas as informações.
+2.Exiba apenas os nomes e as idades dos alunos.
+3.Mostre os alunos com idade maior que 20 anos.
+4.Liste os cursos existentes sem repetição.
+5.Exiba os alunos ordenados pela nota, do maior para o menor.
