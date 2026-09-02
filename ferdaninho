@@ -1,1 +1,22 @@
+Aula 6 - MySQL
+Aula 5 - Inserts
+-- Inserir Estações
+INSERT INTO Estacoes (Nome, Localizacao) VALUES
+('Estação Central', 'Centro da Cidade, Bloco A'),
+('Estação Norte', 'Zona Norte, Próximo ao Parque');
 
+-- Inserir Sensores
+-- Nota: Os IDs das estações serão 1 e 2, respectivamente.
+INSERT INTO Sensores (EstacaoId, TipoSensor, DataInstalacao) VALUES
+(1, 'Temperatura', '2024-01-10'),
+(1, 'Umidade', '2024-01-10'),
+(2, 'Temperatura', '2024-02-15');
+
+-- Inserir Medições
+-- Nota: Os IDs dos sensores serão 1, 2 e 3, respectivamente.
+INSERT INTO Medicoes (SensorId, DataHora, Valor) VALUES
+(1, '2025-09-20 14:00:00', 25.50),
+(2, '2025-09-20 14:00:00', 65.20),
+(1, '2025-09-20 15:00:00', 26.10);
+
+ 
