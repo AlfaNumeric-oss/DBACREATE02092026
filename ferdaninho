@@ -1,22 +1,22 @@
 Aula 6 - MySQL
-Aula 5 - Inserts
--- Inserir Estações
-INSERT INTO Estacoes (Nome, Localizacao) VALUES
-('Estação Central', 'Centro da Cidade, Bloco A'),
-('Estação Norte', 'Zona Norte, Próximo ao Parque');
+CREATE TABLE Alunos (
+ Id INT AUTO_INCREMENT,
+ Nome VARCHAR(100) NOT NULL,
+ Idade TINYINT UNSIGNED NOT NULL,
+ Curso VARCHAR(50) NOT NULL,
+ Cidade VARCHAR(50) NULL,
+ Nota DECIMAL(4,2) NULL,
 
--- Inserir Sensores
--- Nota: Os IDs das estações serão 1 e 2, respectivamente.
-INSERT INTO Sensores (EstacaoId, TipoSensor, DataInstalacao) VALUES
-(1, 'Temperatura', '2024-01-10'),
-(1, 'Umidade', '2024-01-10'),
-(2, 'Temperatura', '2024-02-15');
+ CONSTRAINT PK_Alunos PRIMARY KEY (Id),
+ CONSTRAINT CK_Idade CHECK (Idade BETWEEN 0 AND 120),
+ CONSTRAINT CK_Nota CHECK (Nota BETWEEN 0 AND 10)
+ ) CHARACTER SET utf8mb4
+ COLLATE utf8mb4_unicode_ci;
 
--- Inserir Medições
--- Nota: Os IDs dos sensores serão 1, 2 e 3, respectivamente.
-INSERT INTO Medicoes (SensorId, DataHora, Valor) VALUES
-(1, '2025-09-20 14:00:00', 25.50),
-(2, '2025-09-20 14:00:00', 65.20),
-(1, '2025-09-20 15:00:00', 26.10);
+INSERT INTO Alunos (Nome, Idade, Curso, Cidade, Nota)
+ VALUES
+ ('João Silva', 20, 'Engenharia', 'Sorocaba', 7.50),
+ ('Ana Costa', 22, 'Computação', 'São Paulo', 9.10),
+ ('Rui Alves', 19, 'Computação', 'Campinas', 6.30);
 
  
