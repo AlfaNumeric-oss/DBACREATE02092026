@@ -26,3 +26,10 @@ Aula 6 - Exercício 1
 3.Mostre os alunos com idade maior que 20 anos.
 4.Liste os cursos existentes sem repetição.
 5.Exiba os alunos ordenados pela nota, do maior para o menor.
+
+Aula 6 - Exercicio 2 e 3
+Exercício 1 — Alunos por cidade
+Liste a quantidade de alunos por cidade, considerando apenas alunos com idade igual ou superior a 18 anos. Mostre somente as cidades com pelo menos 2 alunos e ordene da maior para a menor quantidade.
+
+Exercício 2 — Média de notas por curso
+Calcule a média das notas por curso, considerando apenas alunos que possuem nota registrada. Mostre somente os cursos cuja média seja superior a 7 e ordene pela maior média.
