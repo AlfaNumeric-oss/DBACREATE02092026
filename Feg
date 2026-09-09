@@ -17,3 +17,16 @@ ALTER TABLE Pedidos
 ADD CONSTRAINT FK_Pedidos_Rest
 FOREIGN KEY (RestauranteID)
 REFERENCES Restaurantes(RestauranteID);
+
+-- ______________
+
+CREATE TABLE Turmas (
+turma_id INT PRIMARY KEY,
+nome_turma VARCHAR(50)
+);
+CREATE TABLE Alunos (
+aluno_id INT PRIMARY KEY,
+nome_aluno VARCHAR(100),
+turma_id INT,
+
+-- ______________
