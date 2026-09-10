@@ -1,4 +1,4 @@
--- Tabela-pai
+u-- Tabela-pai
 CREATE TABLE Restaurantes (
 RestauranteID INT PRIMARY KEY,
 Nome VARCHAR(100) NOT NULL,
@@ -30,3 +30,29 @@ nome_aluno VARCHAR(100),
 turma_id INT,
 
 -- ______________
+
+CREATE TABLE PessoaA (
+ NomeA VARCHAR(30)
+);
+
+-- Inserir os registros na tabela PessoaA
+INSERT INTO PessoaA (NomeA) VALUES
+('Joao'),
+('Maria'),
+('Antônio'),
+('Samanta'),
+('Lucca'),
+('Alice');
+
+CREATE TABLE PessoaB (
+ NomeB VARCHAR(30)
+);
+
+-- Inserir os registros na tabela PessoaB
+INSERT INTO PessoaB (NomeB) VALUES
+('Flávio'),
+('Alice'),
+('Joana'),
+('Mario'),
+('Joao'),
+('Tereza');
