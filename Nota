@@ -1,0 +1,5 @@
+Aula 30/09/2026
+CREATE TABLE AutorBiblioteca(id_autor INT PRIMARY KEY,nome_autor VARCHAR(80));
+CREATE TABLE LivroBiblioteca(id_livro INT PRIMARY KEY,titulo VARCHAR(100),id_autor INT,FOREIGN KEY(id_autor) REFERENCES AutorBiblioteca(id_autor));
+INSERT INTO AutorBiblioteca VALUES(1,'Ana Torres'),(2,'Bruno Reis'),(3,'Carla Melo');
+INSERT INTO LivroBiblioteca VALUES(10,'Banco de Dados',1),(11,'Redes',2),(12,'Algoritmos',1),(13,'UX Básico',3);
