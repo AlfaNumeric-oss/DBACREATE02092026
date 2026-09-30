@@ -10,3 +10,10 @@ CREATE TABLE ClienteLoja(id_cliente INT PRIMARY KEY,nome_cliente VARCHAR(80));
 CREATE TABLE PedidoLoja(id_pedido INT PRIMARY KEY,id_cliente INT,valor DECIMAL(10,2),FOREIGN KEY(id_cliente) REFERENCES ClienteLoja(id_cliente));
 INSERT INTO ClienteLoja VALUES(1,'Ana'),(2,'Bruno'),(3,'Carla'),(4,'Diego');
 INSERT INTO PedidoLoja VALUES(100,1,250),(101,1,90),(102,3,500);
+
+Aula 30/09/2026 - Exercício 3
+
+CREATE TABLE DepartamentoRH(id_departamento INT PRIMARY KEY,nome_departamento VARCHAR(60));
+CREATE TABLE FuncionarioRH(id_funcionario INT PRIMARY KEY,nome_funcionario VARCHAR(80),id_departamento INT NULL);
+INSERT INTO DepartamentoRH VALUES(1,'TI'),(2,'Financeiro'),(3,'Jurídico');
+INSERT INTO FuncionarioRH VALUES(10,'Ana',1),(11,'Bruno',2),(12,'Carla',NULL);
