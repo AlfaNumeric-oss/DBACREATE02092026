@@ -3,3 +3,10 @@ CREATE TABLE AutorBiblioteca(id_autor INT PRIMARY KEY,nome_autor VARCHAR(80));
 CREATE TABLE LivroBiblioteca(id_livro INT PRIMARY KEY,titulo VARCHAR(100),id_autor INT,FOREIGN KEY(id_autor) REFERENCES AutorBiblioteca(id_autor));
 INSERT INTO AutorBiblioteca VALUES(1,'Ana Torres'),(2,'Bruno Reis'),(3,'Carla Melo');
 INSERT INTO LivroBiblioteca VALUES(10,'Banco de Dados',1),(11,'Redes',2),(12,'Algoritmos',1),(13,'UX Básico',3);
+
+AUAL 30/09/2026 - EXERCÍCIO 2
+
+CREATE TABLE ClienteLoja(id_cliente INT PRIMARY KEY,nome_cliente VARCHAR(80));
+CREATE TABLE PedidoLoja(id_pedido INT PRIMARY KEY,id_cliente INT,valor DECIMAL(10,2),FOREIGN KEY(id_cliente) REFERENCES ClienteLoja(id_cliente));
+INSERT INTO ClienteLoja VALUES(1,'Ana'),(2,'Bruno'),(3,'Carla'),(4,'Diego');
+INSERT INTO PedidoLoja VALUES(100,1,250),(101,1,90),(102,3,500);
