@@ -17,3 +17,10 @@ CREATE TABLE DepartamentoRH(id_departamento INT PRIMARY KEY,nome_departamento VA
 CREATE TABLE FuncionarioRH(id_funcionario INT PRIMARY KEY,nome_funcionario VARCHAR(80),id_departamento INT NULL);
 INSERT INTO DepartamentoRH VALUES(1,'TI'),(2,'Financeiro'),(3,'Jurídico');
 INSERT INTO FuncionarioRH VALUES(10,'Ana',1),(11,'Bruno',2),(12,'Carla',NULL);
+
+Aula 30/09/26 - exercício 4
+
+CREATE TABLE AlunoCurso(id_aluno INT PRIMARY KEY,nome VARCHAR(80));
+CREATE TABLE CompraCurso(id_compra INT PRIMARY KEY,id_aluno INT,status VARCHAR(20),valor DECIMAL(10,2));
+INSERT INTO AlunoCurso VALUES(1,'Ana'),(2,'Bruno'),(3,'Carla'),(4,'Diego');
+INSERT INTO CompraCurso VALUES(10,1,'PAGO',120),(11,1,'PAGO',80),(12,2,'CANCELADO',150),(13,4,'PAGO',200);
