@@ -1,0 +1,4 @@
+Exercício 5 - 07/10/26
+
+CREATE TABLE VendaRegional(id_venda INT PRIMARY KEY,regiao VARCHAR(30),valor DECIMAL(12,2));
+INSERT INTO VendaRegional VALUES(1,'Sul',6000),(2,'Sul',7000),(3,'Sudeste',9000),(4,'Sudeste',8000),(5,'Norte',4000),(6,'Norte',3000);
