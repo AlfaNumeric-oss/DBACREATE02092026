@@ -2,3 +2,65 @@ Exercício 5 - 07/10/26
 
 CREATE TABLE VendaRegional(id_venda INT PRIMARY KEY,regiao VARCHAR(30),valor DECIMAL(12,2));
 INSERT INTO VendaRegional VALUES(1,'Sul',6000),(2,'Sul',7000),(3,'Sudeste',9000),(4,'Sudeste',8000),(5,'Norte',4000),(6,'Norte',3000);
+
+Sobre CTE
+Guia Técnico de SQL: Consultas com CTE (Common Table Expressions)
+Análise detalhada da cláusula WITH, ciclo de execução e comparação entre WHERE e HAVING
+1. Visão Geral da Consulta Analisada
+A consulta em análise utiliza a sintaxe de Common Table Expressions (CTE), iniciada pela cláusula WITH. Essa técnica é amplamente utilizada para modularizar consultas complexas, isolar agregações intermediárias e permitir a reutilização de colunas calculadas em filtros subsequentes.
+WITH TotalRegiao AS (
+ SELECT regiao, SUM(valor) AS total_vendido
+ FROM VendaRegional
+ GROUP BY regiao
+ )
+ SELECT * 
+ FROM TotalRegiao
+ WHERE total_vendido > 10000
+ ORDER BY total_vendido DESC;
+
+2. Decomposição e Ciclo de Execução
+1. Declaração WITH TotalRegiao AS (...): Inicia a declaração da CTE. Ela define uma tabela de resultados transitória e nomeada, cujo ciclo de vida existe apenas durante a execução desta instrução SQL.
+2. Agregação e Projeção Interna: O motor de banco de dados varre a tabela VendaRegional, agrupa os registros com base na coluna 'regiao' e aplica a função agregadora SUM(valor). O resultado é temporariamente rotulado com o alias 'total_vendido'.
+Região
+	total_vendido (Soma Intermediária)
+
+Sul
+	13.000,00
+
+Sudeste
+	17.000,00
+
+Norte
+	7.000,00
+
+3. Filtragem com WHERE total_vendido > 10000: Na consulta principal, a CTE é referenciada como uma relação tabular comum. Isso permite a aplicação do filtro WHERE diretamente sobre a coluna calculada 'total_vendido', eliminando valores inferiores ou iguais a 10.000 (no caso, a região Norte com 7.000,00).
+4. Ordenação com ORDER BY total_vendido DESC: Os registros remanescentes são organizados do maior montante para o menor, garantindo que o maior faturamento regional apareça no topo.
+3. Conjunto de Resultados Final
+Após a filtragem e a ordenação, a consulta retorna exatamente duas regiões:
+regiao
+	total_vendido
+
+Sudeste
+	17000.00
+
+Sul
+	13000.00
+
+4. Análise Técnica: Por que utilizar CTE em vez de HAVING?
+Em SQL puro, a mesma lógica poderia ser resolvida em uma única instrução com HAVING SUM(valor) > 10000. No entanto, a abordagem com CTE apresenta vantagens arquiteturais cruciais:
+
+Critério
+	Abordagem com CTE (WITH)
+	Abordagem com GROUP BY + HAVING
+
+Legibilidade
+	Fluxo linear (Etapa 1: Agregar -> Etapa 2: Filtrar).
+	Tudo em um único bloco, mais denso de interpretar.
+
+Reutilização de Alias
+	Permite usar o alias 'total_vendido' diretamente no WHERE.
+	Obrigatório repetir a expressão de soma 'SUM(valor) > 10000'.
+
+Manutenibilidade
+	Permite encadear múltiplos cálculos e junções posteriores.
+	Limitado ao escopo de agregação do grupo atual.
