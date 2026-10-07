@@ -64,3 +64,8 @@ Reutilização de Alias
 Manutenibilidade
 	Permite encadear múltiplos cálculos e junções posteriores.
 	Limitado ao escopo de agregação do grupo atual.
+
+
+Exercicio 6 - 1F, 2F, 3F
+CREATE TABLE PedidoAntigo(id_pedido INT PRIMARY KEY,cliente VARCHAR(80),produto1 VARCHAR(60),produto2 VARCHAR(60),produto3 VARCHAR(60));
+INSERT INTO PedidoAntigo VALUES(1,'Ana','Hambúrguer','Suco','Batata');
